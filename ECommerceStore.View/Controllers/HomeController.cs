@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CommerceStore.Data.Interfaces;
+using CommerceStore.Data.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,13 +13,16 @@ namespace ECommerceStore.View.Controllers
     public class HomeController : Controller
     {
 
-        public HomeController()
+        private readonly IProductRepository _productRepository;
+
+        public HomeController(IProductRepository productRepository)
         {
+            _productRepository = productRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_productRepository.GetProducts());
         }
 
     }

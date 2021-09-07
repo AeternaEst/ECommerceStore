@@ -10,4 +10,8 @@
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CommerceStore.Data\CommerceStore.Data.csproj" />
+  </ItemGroup>
+
 </Project>

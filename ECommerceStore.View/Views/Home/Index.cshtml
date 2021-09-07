@@ -1,5 +1,15 @@
-﻿@{
+﻿@model List<CommerceStore.Data.Entities.Product>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<h2>Hello World</h2>
+<h2>Products</h2>
+
+@foreach (var product in Model)
+            {
+<ul>
+    <li>@product.Id</li>
+    <li>@product.Name</li>
+    <li>@product.Description</li>
+</ul>
+            }
