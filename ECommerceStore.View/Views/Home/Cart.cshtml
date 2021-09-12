@@ -1,0 +1,13 @@
+﻿@model CommerceStore.Data.Entities.Cart
+
+<ul>
+    <li>@Model.Id</li>
+    <ul>
+        @foreach (var cartLine in Model.CartLines)
+        {
+            <li>Quantity @cartLine.Quantity</li>
+            <li>Product name @cartLine.Product.Name</li>
+            <li>Price @cartLine.Product.Price</li>
+        }
+    </ul>
+</ul>

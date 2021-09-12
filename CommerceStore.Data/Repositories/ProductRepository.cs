@@ -10,29 +10,16 @@ namespace CommerceStore.Data.Repositories
 {
     public class ProductRepository : IProductRepository
     {
+        private readonly StoreContext _dbContext;
+
+        public ProductRepository(StoreContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public IEnumerable<Product> GetProducts()
         {
-            return new List<Product>
-            {
-                new Product
-                {
-                    Id = 1,
-                    Name = "Macbook Pro",
-                    Description = "For pretentious douchebags"
-                },
-                new Product
-                {
-                    Id = 2,
-                    Name = "Football",
-                    Description = "Leather ball"
-                },
-                new Product
-                {
-                    Id = 3,
-                    Name = "WGExternal Harddrive",
-                    Description = "500GB storage"
-                }
-            };
+            return _dbContext.Products.ToList();
         }
     }
 }

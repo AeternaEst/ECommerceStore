@@ -14,15 +14,22 @@ namespace ECommerceStore.View.Controllers
     {
 
         private readonly IProductRepository _productRepository;
+        private readonly ICartRepository _cartRepository;
 
-        public HomeController(IProductRepository productRepository)
+        public HomeController(IProductRepository productRepository, ICartRepository cartRepository)
         {
             _productRepository = productRepository;
+            _cartRepository = cartRepository;
         }
 
         public IActionResult Index()
         {
             return View(_productRepository.GetProducts());
+        }
+
+        public IActionResult Cart(int id)
+        {
+            return View(_cartRepository.GetCart(id));
         }
 
     }

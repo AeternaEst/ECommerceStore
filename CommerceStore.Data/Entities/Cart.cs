@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace CommerceStore.Data.Entities
 {
-    public class Product
+    public class Cart
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string Description { get; set; }
+        public IEnumerable<CartLine> CartLines { get; set; }
     }
 }
