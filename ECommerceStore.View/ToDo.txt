@@ -1,0 +1,12 @@
+﻿
+Add real database -> Run migrations
+Add option to run InMemory or RealDB
+Add WebAPI project -> Add/Remove product, Get Cart
+Add basic unit test project
+Extend entity models
+Visualize database tools ?
+Add validation attributes and validation
+Find simple way to switch between development environment variable and production
+Connect frontend project
+Deploy to local IIS -> Local IIS should run production environment
+Integrate swagger

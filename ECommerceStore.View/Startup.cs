@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using System;
 
 namespace ECommerceStore.View
 {
@@ -28,7 +30,18 @@ namespace ECommerceStore.View
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<StoreContext>(opt => opt.UseInMemoryDatabase("ecommerce-store"));
+            var isDevelopment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development";
+
+            if (isDevelopment)
+            {
+                services.AddDbContext<StoreContext>(opt => opt.UseInMemoryDatabase("ecommerce-store"));
+            }
+
+            if (!isDevelopment)
+            {
+                 services.AddDbContext<StoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                 services.AddDatabaseDeveloperPageExceptionFilter();
+            }
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICartRepository, CartRepository>();

@@ -17,6 +17,13 @@ namespace CommerceStore.Data.Extensions
             {
                 using (var storeContext = serviceScope.ServiceProvider.GetService<StoreContext>())
                 {
+                    storeContext.Database.EnsureCreated();
+
+                    if (storeContext.Products.Any())
+                    {
+                        return;
+                    }
+
                     var product1 = new Product
                     {
                         Name = "Macbook Pro",
