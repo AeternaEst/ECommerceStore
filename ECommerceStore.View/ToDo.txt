@@ -1,12 +1,15 @@
 ﻿
-Add real database -> Run migrations
-Add option to run InMemory or RealDB
-Add WebAPI project -> Add/Remove product, Get Cart
+Implement adJust quantity endpoint
+Add WebAPI project -> Support repository methods
+Add validation attributes and validation
 Add basic unit test project
+
+Add real database -> Run migrations
+Change sql connection string to generic instance
 Extend entity models
 Visualize database tools ?
-Add validation attributes and validation
-Find simple way to switch between development environment variable and production
-Connect frontend project
-Deploy to local IIS -> Local IIS should run production environment
+
+Deploy to local IIS -> Local IIS should run production environment (publish profiles)
+
 Integrate swagger
+Connect frontend project

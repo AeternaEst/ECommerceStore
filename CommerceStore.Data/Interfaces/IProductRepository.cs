@@ -9,6 +9,8 @@ namespace CommerceStore.Data.Interfaces
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetProducts(); 
+        Task<IEnumerable<Product>> GetProducts();
+
+        Task<Product> GetProduct(int productId);
     }
 }

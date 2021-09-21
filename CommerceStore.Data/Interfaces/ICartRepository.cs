@@ -9,6 +9,10 @@ namespace CommerceStore.Data.Interfaces
 {
     public interface ICartRepository
     {
-        Cart GetCart(int cartId);
+        Task<Cart> GetCart(int cartId);
+
+        Task<Product> AddProduct(int cartId, int productId, int quantity);
+
+        Task<Product> RemoveProduct(int cartId, int productId);
     }
 }

@@ -9,6 +9,6 @@ namespace CommerceStore.Data.Entities
     public class Cart
     {
         public int Id { get; set; }
-        public IEnumerable<CartLine> CartLines { get; set; }
+        public IList<CartLine> CartLines { get; set; }
     }
 }

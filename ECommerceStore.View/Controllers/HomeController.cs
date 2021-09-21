@@ -22,14 +22,16 @@ namespace ECommerceStore.View.Controllers
             _cartRepository = cartRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_productRepository.GetProducts());
+            var products = await _productRepository.GetProducts();
+            return View(products);
         }
 
-        public IActionResult Cart(int id)
+        public async Task<IActionResult> Cart(int id)
         {
-            return View(_cartRepository.GetCart(id));
+            var cart = await _cartRepository.GetCart(id);
+            return View(cart);
         }
 
     }
